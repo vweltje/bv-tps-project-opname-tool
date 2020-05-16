@@ -1,8 +1,11 @@
 import React from "react"
+import { StateProvider } from "../../store"
 import "./Layout.scss"
 
 const Layout = ({ children }) => {
-  return <main>{children}</main>
+  return <StateProvider>
+  <main>{children}</main>
+  </StateProvider>
 }
 
 export default Layout
