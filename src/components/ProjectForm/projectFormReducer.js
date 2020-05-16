@@ -40,7 +40,7 @@ export const projectFormInitState = {
 export const projectFormReducer = (state, { type, value }) => {
   switch (type) {
     case "projectForm--fieldUpdate":
-      const mutatedState = state // eslint-disable-line
+      const mutatedState = state
       mutatedState.fields[value.field] = {
         ...mutatedState.fields[value.field],
         value: value.value

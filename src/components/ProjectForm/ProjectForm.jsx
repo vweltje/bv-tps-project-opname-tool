@@ -6,7 +6,6 @@ const ProjectForm = () => {
   return (
     <>
       <ProjectInfo />
-      <div style={{ height: 500 }} />
       <ProjectSubmit />
     </>
   )

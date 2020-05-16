@@ -29,6 +29,7 @@
     "react/no-danger": "off",
     "react/no-unescaped-entities": "off",
     "react/no-array-index-key": "off",
+    "no-case-declarations": "off",
     "semi": [2, "never"],
     "jsx-a11y/anchor-is-valid": [
       "error",
