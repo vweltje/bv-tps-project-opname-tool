@@ -11,7 +11,7 @@ $font: "Quicksand", sans-serif;
 $spacing: 10px;
 
 // Container
-$containerWidth: 720px;
+$mainWidth: 720px;
 
 // transition
 $transitionSpeed: 0.2s;
@@ -22,15 +22,19 @@ $boxShadow: 0px 3px 3px -2px rgba($colorBlack, 0.2),
   0px 3px 4px 0px rgba($colorBlack, 0.14),
   0px 1px 8px 0px rgba($colorBlack, 0.12);
 
-@mixin Container {
-  position: relative;
-  display: block;
+@mixin InputOverwrites {
   width: 100%;
-  max-width: $containerWidth;
-  padding: 0 #{$spacing * 4};
-  margin: 0 auto;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  font-family: $font;
+  font-size: 2rem;
+  outline: none;
+  border: none;
+  padding: 0.5rem 0;
 
-  @media screen and (max-width: $bpMedium) {
-    padding: 0 #{$spacing * 2};
+  &::placeholder {
+    color: inherit;
+    opacity: 0.65;
   }
 }
