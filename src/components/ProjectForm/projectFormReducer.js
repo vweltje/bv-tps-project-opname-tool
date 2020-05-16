@@ -5,51 +5,47 @@ export const projectFormInitState = {
     projectName: {
       name: "Project",
       type: "text",
-      value: false,
       required: true
     },
     projectNummber: {
       name: "Projectnummer",
       type: "number",
-      value: false,
       defaultValue: getProjectNumber(),
       required: true
     },
     contactPerson: {
       name: "Contactpersoon",
       type: "text",
-      value: false,
       required: true
     },
     adress: {
       name: "Adres",
       type: "text",
-      value: false,
       required: true
     },
     projectOwner: {
       name: "Opnemer (naam)",
       type: "text",
-      value: false,
       required: true
     },
     date: {
       name: "Datum",
       type: "date",
-      value: false,
       defaultValue: getDateForInput(),
       required: true
     }
   }
 }
 
-export const projectFormReducer = (state, action) => {
-  switch (action.type) {
-    case "projectForm--activate":
-      return {
-        ...state,
-        active: true
+export const projectFormReducer = (state, { type, value }) => {
+  switch (type) {
+    case "projectForm--fieldUpdate":
+      const mutatedState = state // eslint-disable-line
+      mutatedState.fields[value.field] = {
+        ...mutatedState.fields[value.field],
+        value: value.value
       }
+      return mutatedState
     case "projectForm--deactivate":
       return {
         ...state,

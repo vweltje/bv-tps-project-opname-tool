@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import { getValue } from "../projectFormHelper"
 import { store } from "../../../store"
 import "./Input.scss"
 
@@ -7,19 +6,27 @@ const Input = ({ className, storeSelector }) => {
   const {
     state: {
       projectForm: { fields }
-    }
+    },
+    dispatch
   } = useContext(store)
-  const { name, type, value, defaultValue, required } = fields?.[storeSelector]
+  const { name, defaultValue, required } = fields?.[storeSelector]
   const onChange = e => {
-    console.log(e)
+    dispatch({
+      type: "projectForm--fieldUpdate",
+      value: {
+        field: storeSelector,
+        value: e?.currentTarget?.value
+      }
+    })
+    console.log(fields)
   }
   return (
     <input
       className={`Input${className ? ` ${className}` : ""}`}
       name={storeSelector}
       placeholder={name}
-      type={type}
-      value={getValue({ value, defaultValue })}
+      type="text"
+      value={defaultValue}
       onChange={e => onChange(e)}
       required={required}
     />

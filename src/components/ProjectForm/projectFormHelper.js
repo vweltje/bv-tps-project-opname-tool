@@ -1,5 +1,3 @@
-export const getValue = ({ value, defaultValue }) => value || defaultValue
-
 export const getDateForInput = () => {
   const date = new Date()
   return `${date.getFullYear()}-${`0${date.getMonth()}`.slice(
