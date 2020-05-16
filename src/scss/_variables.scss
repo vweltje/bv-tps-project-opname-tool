@@ -1,0 +1,36 @@
+// Colors
+$colorBlue: #004f7e;
+$colorOrgange: #f18e00;
+$colorBlack: #000;
+$colorWhite: #fff;
+
+// Fonts
+$font: "Quicksand", sans-serif;
+
+// Spacing
+$spacing: 10px;
+
+// Container
+$containerWidth: 720px;
+
+// transition
+$transitionSpeed: 0.2s;
+$transition: ease all $transitionSpeed;
+
+// Other
+$boxShadow: 0px 3px 3px -2px rgba($colorBlack, 0.2),
+  0px 3px 4px 0px rgba($colorBlack, 0.14),
+  0px 1px 8px 0px rgba($colorBlack, 0.12);
+
+@mixin Container {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: $containerWidth;
+  padding: 0 #{$spacing * 4};
+  margin: 0 auto;
+
+  @media screen and (max-width: $bpMedium) {
+    padding: 0 #{$spacing * 2};
+  }
+}
