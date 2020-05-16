@@ -25,44 +25,6 @@ body {
   overflow-x: hidden;
 }
 
-.Link {
-  position: relative;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 1.4rem;
-  letter-spacing: 0.1rem;
-  padding-right: 30px;
-
-  &::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transition: ease all $transitionSpeed;
-    @include ArrowIcon;
-  }
-
-  &:hover::after {
-    right: -10px;
-  }
-
-  &.previous {
-    padding-right: 0;
-    padding-left: 30px;
-
-    &::after {
-      right: unset;
-      left: 0;
-      transform: translateY(-50%) rotate(180deg);
-    }
-
-    &:hover::after {
-      right: unset;
-      left: -10px;
-    }
-  }
-}
-
 .Hidden {
   display: none;
   font-size: 0;
