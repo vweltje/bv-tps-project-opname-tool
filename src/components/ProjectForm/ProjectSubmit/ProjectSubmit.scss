@@ -1,0 +1,11 @@
+.ProjectSubmit {
+  width: 100%;
+}
+
+.ProjectSubmit--button {
+  background-color: $colorOrange;
+  border: none;
+  width: 100%;
+  color: $colorWhite;
+  padding: #{$spacing * 1.5};
+}

@@ -48,3 +48,10 @@ ul {
     margin-right: 0;
   }
 }
+
+button {
+  outline: none;
+  font-family: $font;
+  font-weight: 500;
+  font-size: 2rem;
+}

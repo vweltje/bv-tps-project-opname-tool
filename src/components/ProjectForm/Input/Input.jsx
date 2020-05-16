@@ -18,7 +18,6 @@ const Input = ({ className, storeSelector }) => {
         value: e?.currentTarget?.value
       }
     })
-    console.log(fields)
   }
   return (
     <input
