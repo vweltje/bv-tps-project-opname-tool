@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import OptionsInput from "../OptionsInput/OptionsInput"
 import Input from "../Input/Input"
 
 import { store } from "../../../store"
@@ -12,8 +13,10 @@ const InputSelector = ({ className, storeSelector }) => {
   const { type } = fields?.[storeSelector]
 
   switch (type) {
-    case "test":
-      return "test"
+    case "options":
+      return (
+        <OptionsInput className={className} storeSelector={storeSelector} />
+      )
     default:
       return <Input className={className} storeSelector={storeSelector} />
   }

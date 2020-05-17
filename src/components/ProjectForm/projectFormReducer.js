@@ -33,6 +33,19 @@ export const projectFormInitState = {
       type: "date",
       defaultValue: getDateForInput(),
       required: true
+    },
+    subfloorType: {
+      name: "Type ondervloer",
+      type: "options",
+      options: [
+        "Cement dekvloeren",
+        "Anhyriet vloeren",
+        "Monolithisch beton",
+        "Houten ondervloeren"
+      ],
+      defaultValue: "Selecteed een ondervoer type",
+      freeType: "Anders",
+      required: true
     }
   }
 }
