@@ -52,6 +52,66 @@ export const projectFormInitState = {
       type: "question",
       answers: ["Ja", "Nee", "Nvt"]
     },
+    restvochtOndergrond: {
+      name: "Restvocht Ondergrond",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
+    omgevingsTemperatuur: {
+      name: "Omgevings temperatuur",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
+    ondergrondTemperatuur: {
+      name: "Ondergrond temperatuur",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
+    voldoendeVerlichting: {
+      name: "Voldoende verlichting",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
+    ondervloerVrijVanLosseDelen: {
+      name: "ondervloerVrijVanLosseDelen",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
+    vrijVanOpstakels: {
+      name: "Vrij van obstakels",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
+    ruimtesLeeg: {
+      name: "Ruimtes leeg",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
+    vloerBezemschoon: {
+      name: "Bloer bezemschoon",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
+    geenBelemmeringenAndereOnderaannemers: {
+      name: "Geen belemeringen andere onderaannemers",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
+    straatwerkAanwezig: {
+      name: "Straatwerk aanwezig",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
+    waterStroomStookAanwezig: {
+      name: "Water/stroom/stook aanwezig",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
+    stookprotocolVloerverwarmingAfgerond: {
+      name: "Stookprotocol vloerverwarming afgerond",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
     note: {
       name: "Opmerking",
       type: "textarea"

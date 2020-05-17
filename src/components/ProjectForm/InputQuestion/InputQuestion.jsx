@@ -40,7 +40,11 @@ const InputQuestion = ({ className, storeSelector }) => {
 
   return (
     <ClickAwayListner onClickAway={() => setEditing(false)}>
-      <div className={`InputOptions${className ? ` ${className}` : ""}`}>
+      <div
+        className={`InputOptions${className ? ` ${className}` : ""}${
+          editing ? ` editing` : ""
+        }`}
+      >
         <Container>
           <button
             onClick={() => setEditing(!editing)}
