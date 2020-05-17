@@ -2,9 +2,14 @@ import {
   projectFormReducer,
   projectFormInitState
 } from "./components/ProjectForm/projectFormReducer"
+import {
+  inputQuestionInitState,
+  inputQuestionReducer
+} from "./components/ProjectForm/InputQuestion/inputQuestionReducer"
 
 export const initState = {
-  projectForm: projectFormInitState
+  projectForm: projectFormInitState,
+  inputQuestion: inputQuestionInitState
 }
 
 export const reducer = (state, action) => {
@@ -14,5 +19,6 @@ export const reducer = (state, action) => {
   }
   return {
     projectForm: projectFormReducer(state.projectForm, mutatedAction),
+    inputQuestion: inputQuestionReducer(state.inputQuestion, mutatedAction)
   }
 }
