@@ -84,7 +84,7 @@ const OptionsInput = ({ className, storeSelector }) => {
             ref={e => e?.focus()}
             className="OptionsInput--freeType"
             type="text"
-            placeholder={`${freeType} namelijk`}
+            placeholder={`${freeType} namelijk...`}
             required
             onChange={e => setFreeTypeValue(e.currentTarget.value)}
           />

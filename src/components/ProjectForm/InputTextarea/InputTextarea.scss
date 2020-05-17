@@ -1,0 +1,9 @@
+.InputTextarea {
+}
+
+.InputTextarea--textarea {
+  @include InputOverwrites;
+  resize: none;
+  font-size: 1.8rem;
+  height: 33px;
+}

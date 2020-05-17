@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import InputTextarea from "../InputTextarea/InputTextarea"
 import OptionsInput from "../OptionsInput/OptionsInput"
 import Input from "../Input/Input"
 
@@ -10,16 +11,13 @@ const InputSelector = ({ className, storeSelector }) => {
       projectForm: { fields }
     }
   } = useContext(store)
-  const { type } = fields?.[storeSelector]
+  const { type } = fields[storeSelector]
+  let InputField = Input
 
-  switch (type) {
-    case "options":
-      return (
-        <OptionsInput className={className} storeSelector={storeSelector} />
-      )
-    default:
-      return <Input className={className} storeSelector={storeSelector} />
-  }
+  if (type === "textarea") InputField = InputTextarea
+  if (type === "options") InputField = OptionsInput
+
+  return <InputField className={className} storeSelector={storeSelector} />
 }
 
 export default InputSelector

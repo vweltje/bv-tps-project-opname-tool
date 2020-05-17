@@ -46,6 +46,10 @@ export const projectFormInitState = {
       defaultValue: "Selecteed een ondervoer type",
       freeType: "Anders",
       required: true
+    },
+    note: {
+      name: "Opmerking",
+      type: "textarea"
     }
   }
 }

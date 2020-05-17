@@ -1,0 +1,15 @@
+.ProjectDetails {
+  .Container {
+    padding: $spacing #{$spacing * 2};
+  }
+
+  > :first-child .Container {
+    padding: #{$spacing * 2};
+    padding-top: $spacing;
+  }
+
+  > :first-child .Container {
+    padding: #{$spacing * 2};
+    padding-bottom: $spacing;
+  }
+}
