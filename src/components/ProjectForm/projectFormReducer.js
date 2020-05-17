@@ -39,7 +39,7 @@ export const projectFormInitState = {
       type: "options",
       options: [
         "Cement dekvloeren",
-        "Anhyriet vloeren",
+        "Anhydriet vloeren",
         "Monolithisch beton",
         "Houten ondervloeren"
       ],
@@ -51,12 +51,24 @@ export const projectFormInitState = {
 }
 
 export const projectFormReducer = (state, { type, value }) => {
+  const mutatedState = state
   switch (type) {
     case "projectForm--fieldUpdate":
-      const mutatedState = state
       mutatedState.fields[value.field] = {
         ...mutatedState.fields[value.field],
         value: value.value
+      }
+      return mutatedState
+    case "projectForm--optionFieldUpdateValue":
+      mutatedState.fields[value.field] = {
+        ...mutatedState.fields[value.field],
+        value: value.value
+      }
+      return mutatedState
+    case "projectForm--optionFieldUpdateFreeTypeValue":
+      mutatedState.fields[value.field] = {
+        ...mutatedState.fields[value.field],
+        freeTypeValue: value.freeTypeValue
       }
       return mutatedState
     case "projectForm--deactivate":
