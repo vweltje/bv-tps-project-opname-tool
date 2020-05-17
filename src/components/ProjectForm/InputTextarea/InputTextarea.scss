@@ -3,6 +3,7 @@
 
 .InputTextarea--textarea {
   @include InputOverwrites;
+  display: block;
   resize: none;
   font-size: 1.8rem;
   height: 33px;

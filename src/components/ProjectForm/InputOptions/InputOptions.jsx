@@ -3,9 +3,9 @@ import { camelCase, capitalize, startCase } from "lodash"
 import Container from "../../Container/Container"
 import InputLabel from "../InputLabel/InputLabel"
 import { store } from "../../../store"
-import "./OptionsInput.scss"
+import "./InputOptions.scss"
 
-const OptionsInput = ({ className, storeSelector }) => {
+const InputOptions = ({ className, storeSelector }) => {
   const [selectRef] = useRef()
   const [selectedValue, setSelectedValue] = useState(false)
   const [freeTypeValue, setFreeTypeValue] = useState(false)
@@ -53,7 +53,7 @@ const OptionsInput = ({ className, storeSelector }) => {
   }, [freeTypeValue])
 
   return (
-    <div className={`OptionsInput${className ? ` ${className}` : ""}`}>
+    <div className={`InputOptions${className ? ` ${className}` : ""}`}>
       <Container>
         <InputLabel
           forInput={storeSelector}
@@ -61,7 +61,7 @@ const OptionsInput = ({ className, storeSelector }) => {
           currentInputValue={capitalize(startCase(selectedValue))}
         />
         <select
-          className="OptionsInput--select"
+          className="InputOptions--select"
           ref={selectRef}
           name={storeSelector}
           id={storeSelector}
@@ -81,8 +81,7 @@ const OptionsInput = ({ className, storeSelector }) => {
         </select>
         {freeType && selectedValue === camelCase(freeType) && (
           <input
-            ref={e => e?.focus()}
-            className="OptionsInput--freeType"
+            className="InputOptions--freeType"
             type="text"
             placeholder={`${freeType} namelijk...`}
             required
@@ -94,4 +93,4 @@ const OptionsInput = ({ className, storeSelector }) => {
   )
 }
 
-export default OptionsInput
+export default InputOptions

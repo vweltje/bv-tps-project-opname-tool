@@ -6,6 +6,7 @@ const ProjectDetails = () => {
   return (
     <div className="ProjectDetails">
       <InputSelector storeSelector="subfloorType" />
+      <InputSelector storeSelector="windWaterProof" />
       <InputSelector storeSelector="note" />
     </div>
   )

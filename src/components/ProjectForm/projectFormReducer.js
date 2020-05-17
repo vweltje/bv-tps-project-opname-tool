@@ -47,6 +47,11 @@ export const projectFormInitState = {
       freeType: "Anders",
       required: true
     },
+    windWaterProof: {
+      name: "Wind & water dicht",
+      type: "question",
+      answers: ["Ja", "Nee", "Nvt"]
+    },
     note: {
       name: "Opmerking",
       type: "textarea"
@@ -73,6 +78,12 @@ export const projectFormReducer = (state, { type, value }) => {
       mutatedState.fields[value.field] = {
         ...mutatedState.fields[value.field],
         freeTypeValue: value.freeTypeValue
+      }
+      return mutatedState
+    case "projectForm--fieldInputQuestionAdditionalInputUpdate":
+      mutatedState.fields[value.field] = {
+        ...mutatedState.fields[value.field],
+        additionalInput: value.additionalInput
       }
       return mutatedState
     case "projectForm--deactivate":
