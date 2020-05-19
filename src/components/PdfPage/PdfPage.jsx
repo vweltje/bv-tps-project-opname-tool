@@ -22,7 +22,6 @@ const PdfPage = ({ size, margins, children }) => {
 
   useEffect(() => {
     if (pageRef?.current) {
-      dispatch("pdfGenerator--addPage")
       html2canvas(pageRef.current, { scale: 1 }).then(canvas => {
         const imgData = canvas.toDataURL("image/png")
         dispatch({ type: "pdfGenerator--addPageScreenShot", value: imgData })

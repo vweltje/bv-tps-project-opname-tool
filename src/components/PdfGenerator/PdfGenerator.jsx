@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react"
-// import html2canvas from "html2canvas"
-// import jsPDF from "jspdf"
+import React, { useRef, useEffect, useContext } from "react"
+import JsPDF from "jspdf"
+import { store } from "../../store"
 import "./PdfGenerator.scss"
 
 // const pxToMm = (ref, px) => {
@@ -9,50 +9,35 @@ import "./PdfGenerator.scss"
 
 const PdfGenerator = ({ children }) => {
   const pxToMmRef = useRef()
+  const {
+    state: {
+      pdfGenerator: { pageScreenShots }
+    }
+  } = useContext(store)
 
   useEffect(() => {
-    // const input = contentRef?.current
-    // const inputHeightMm = pxToMm(pxToMmRef, input.offsetHeight)
-    // const inputWidthMm = pxToMm(pxToMmRef, input.offsetWidth)
-    // const a4WidthMm = 210
-    // const a4HeightMm = 297
-    // const scaleValue = a4WidthMm / inputWidthMm
-    // const width = Math.floor(inputWidthMm * scaleValue)
-    // const height = Math.floor(inputHeightMm * scaleValue)
-    //
-    // html2canvas(input, { scale: 1 }).then(canvas => {
-    //   const imgData = canvas.toDataURL("image/png")
-    //   const options = {
-    //     orientation: "p",
-    //     unit: "mm",
-    //     format: "a4",
-    //     putOnlyUsedFonts: true,
-    //     floatPrecision: "smart"
-    //   }
-    //   const pdf = new jsPDF(options) // eslint-disable-line new-cap
-    //   const pages = Math.ceil(height / a4HeightMm)
-    //   let currentPage = 0
-    //
-    //   while (currentPage <= pages) {
-    //     if (currentPage !== 0 && currentPage !== pages) pdf.addPage()
-    //     pdf.addImage(
-    //       imgData,
-    //       "PNG",
-    //       0,
-    //       -Math.abs(a4HeightMm * currentPage),
-    //       width,
-    //       height
-    //     )
-    //     currentPage += 1
-    //   }
-    //
-    //   pdf.save(`test.pdf`, { returnPromise: true }).then(() => {
-    //     console.log("PDF generated")
-    //   })
-    // })
+    if (pageScreenShots.length === children.length) {
+      const pdf = new JsPDF({
+        orientation: "p",
+        unit: "mm",
+        format: "a4",
+        floatPrecision: "smart"
+      })
 
-    children.map(child => console.log(child))
-  })
+      let index = 0
+      while (index < pageScreenShots.length) {
+        if (index !== 0 && index !== pageScreenShots.length) {
+          pdf.addPage()
+        }
+        pdf.addImage(pageScreenShots[index], "PNG", 0, 0, 210, 297)
+        index += 1
+      }
+
+      pdf.save(`test.pdf`, { returnPromise: true }).then(() => {
+        console.log("done")
+      })
+    }
+  }, [children, pageScreenShots])
 
   return (
     <>
