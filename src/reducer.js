@@ -6,10 +6,15 @@ import {
   inputQuestionInitState,
   inputQuestionReducer
 } from "./components/ProjectForm/InputQuestion/inputQuestionReducer"
+import {
+  pdfGeneratorInitState,
+  pdfGeneratorReducer
+} from "./components/PdfGenerator/pdfGeneratorReducer"
 
 export const initState = {
   projectForm: projectFormInitState,
-  inputQuestion: inputQuestionInitState
+  inputQuestion: inputQuestionInitState,
+  pdfGenerator: pdfGeneratorInitState
 }
 
 export const reducer = (state, action) => {
@@ -19,6 +24,7 @@ export const reducer = (state, action) => {
   }
   return {
     projectForm: projectFormReducer(state.projectForm, mutatedAction),
-    inputQuestion: inputQuestionReducer(state.inputQuestion, mutatedAction)
+    inputQuestion: inputQuestionReducer(state.inputQuestion, mutatedAction),
+    pdfGenerator: pdfGeneratorReducer(state.pdfGenerator, mutatedAction)
   }
 }
