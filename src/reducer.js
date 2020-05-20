@@ -9,7 +9,7 @@ import {
 import {
   pdfGeneratorInitState,
   pdfGeneratorReducer
-} from "./components/PdfGenerator/pdfGeneratorReducer"
+} from "./components/Pdf/PdfGenerator/pdfGeneratorReducer"
 
 export const initState = {
   projectForm: projectFormInitState,

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react"
-import { store } from "../../store"
+import { store } from "../../../store"
 import "./PdfGenerator.scss"
 
 const JsPDF = typeof window !== `undefined` ? require("jspdf") : null

@@ -3,10 +3,12 @@ import { StateProvider } from "../../store"
 import "../../scss/base.scss"
 import "./Layout.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, noMaxWidth = false }) => {
   return (
     <StateProvider>
-      <main className="Layout">{children}</main>
+      <main className="Layout" style={noMaxWidth ? { maxWidth: "unset" } : {}}>
+        {children}
+      </main>
     </StateProvider>
   )
 }

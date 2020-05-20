@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useContext } from "react"
-import { store } from "../../store"
+import { store } from "../../../store"
 import "./PdfPage.scss"
 
 const html2canvas =
