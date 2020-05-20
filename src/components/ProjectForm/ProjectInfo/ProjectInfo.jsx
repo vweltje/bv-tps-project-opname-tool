@@ -20,6 +20,7 @@ const ProjectInfo = () => {
         </ProjectInfoGroup>
         <ProjectInfoGroup>
           <InputSelector storeSelector="contactPerson" />
+          <InputSelector storeSelector="phone" />
           <InputSelector storeSelector="adress" />
         </ProjectInfoGroup>
         <ProjectInfoGroup>

@@ -1,0 +1,19 @@
+.PdfInput {
+  width: 100%;
+  display: flex;
+}
+
+.PdfInput--label {
+  width: 28mm;
+}
+
+.PdfInput--value {
+  flex-grow: 1;
+  position: relative;
+  border-bottom: 0.1mm solid rgba($colorBlack, 0.5);
+
+  &::before {
+    content: ":";
+    padding: 0 1mm;
+  }
+}

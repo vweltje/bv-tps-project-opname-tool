@@ -1,0 +1,16 @@
+.PdfProjectInfo {
+  padding: 5mm 0;
+}
+
+.PdfProjectInfo--heading {
+  font-size: 4mm;
+}
+
+.PdfProjectInfo--infoBlock {
+  display: flex;
+  justify-content: space-between;
+
+  > div {
+    width: calc(50% - 2.5mm);
+  }
+}

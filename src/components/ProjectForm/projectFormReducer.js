@@ -18,6 +18,11 @@ export const projectFormInitState = {
       type: "text",
       required: true
     },
+    phone: {
+      name: "Telefoon",
+      type: "text",
+      required: true
+    },
     adress: {
       name: "Adres",
       type: "text",
