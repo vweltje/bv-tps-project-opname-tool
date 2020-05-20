@@ -12,7 +12,7 @@ const PdfInput = ({ storeSelector }) => {
   return (
     <div className="PdfInput">
       <div className="PdfInput--label">{name}</div>
-      <div className="PdfInput--value">wergewr{value}</div>
+      <div className="PdfInput--value">{value}</div>
     </div>
   )
 }

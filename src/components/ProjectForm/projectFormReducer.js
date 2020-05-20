@@ -118,8 +118,10 @@ export const projectFormInitState = {
       answers: ["Ja", "Nee", "Nvt"]
     },
     note: {
-      name: "Opmerking",
-      type: "textarea"
+      name: "Opmerkingen",
+      type: "textarea",
+      value:
+        "dit is een note die erg lang moet zijn om te testen hoe dat het uiteindelijk in het pdf bestand er uit gaat zien. dit is een note die erg lang moet zijn om te testen hoe dat het uiteindelijk in het pdf bestand er uit gaat zien. dit is een note die erg lang moet zijn om te testen hoe dat het uiteindelijk in het pdf bestand er uit gaat zien. dit is een note die erg lang moet zijn om te testen hoe dat het uiteindelijk in het pdf bestand er uit gaat zien. dit is een note die erg lang moet zijn om te testen hoe dat het uiteindelijk in het pdf bestand er uit gaat zien."
     }
   }
 }
