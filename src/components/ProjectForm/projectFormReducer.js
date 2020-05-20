@@ -55,27 +55,22 @@ export const projectFormInitState = {
     windWaterProof: {
       name: "Wind & water dicht",
       type: "question",
-      answers: ["Ja", "Nee", "Nvt"],
-      value: "ja"
+      answers: ["Ja", "Nee", "Nvt"]
     },
     restvochtOndergrond: {
       name: "Restvocht Ondergrond",
       type: "question",
-      answers: ["Ja", "Nee", "Nvt"],
-      value: "nee"
+      answers: ["Ja", "Nee", "Nvt"]
     },
     omgevingsTemperatuur: {
       name: "Omgevings temperatuur",
       type: "question",
-      answers: ["Ja", "Nee", "Nvt"],
-      value: "nvt"
+      answers: ["Ja", "Nee", "Nvt"]
     },
     ondergrondTemperatuur: {
       name: "Ondergrond temperatuur",
       type: "question",
-      answers: ["Ja", "Nee", "Nvt"],
-      value: "ja",
-      additionalInput: "dit is een optionele tekst"
+      answers: ["Ja", "Nee", "Nvt"]
     },
     voldoendeVerlichting: {
       name: "Voldoende verlichting",
