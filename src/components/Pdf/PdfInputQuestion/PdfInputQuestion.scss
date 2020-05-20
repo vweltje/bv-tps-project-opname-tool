@@ -1,0 +1,34 @@
+.PdfInputQuestion {
+  display: flex;
+}
+
+.PdfInputQuestion--name {
+  width: 90mm;
+}
+
+.PdfInputQuestion--checkboxes {
+  width: 19mm;
+
+  &.title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  span {
+    text-align: center;
+    display: inline-block;
+  }
+  .Checkbox {
+    margin-right: 3mm;
+  }
+}
+
+.PdfInputQuestion--comment {
+  width: calc(100% - 109mm);
+}
+
+.PdfInputQuestion--checkboxes {
+  .Checkbox:last-of-type {
+    margin-right: 0;
+  }
+}
