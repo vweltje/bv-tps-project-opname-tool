@@ -20,7 +20,10 @@ const PdfInputQuestion = ({ storeSelector, insertTitle = false }) => {
             <span margin-left="1px">Nee</span>
             <span>NVT</span>
           </div>
-          <div className="PdfInputQuestion--comment" />
+          <div
+            className="PdfInputQuestion--comment"
+            style={{ borderBottom: "none" }}
+          />
         </div>
       )}
       <div className="PdfInputQuestion">

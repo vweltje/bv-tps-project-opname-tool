@@ -8,6 +8,8 @@
 
 .PdfInputQuestion--checkboxes {
   width: 19mm;
+  display: flex;
+  align-items: center;
 
   &.title {
     display: flex;
