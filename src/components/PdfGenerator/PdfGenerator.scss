@@ -1,9 +1,7 @@
 .PdfGenerator {
-  width: 100%;
+  min-width: 100%;
   background-color: $colorLightGrey;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 1px 0;
+  display: inline-block;
 }

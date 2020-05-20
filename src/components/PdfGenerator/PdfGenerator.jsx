@@ -1,14 +1,10 @@
-import React, { useRef, useEffect, useContext } from "react"
-import JsPDF from "jspdf"
+import React, { useEffect, useContext } from "react"
 import { store } from "../../store"
 import "./PdfGenerator.scss"
 
-// const pxToMm = (ref, px) => {
-//   return Math.floor(px / ref?.current?.offsetHeight)
-// }
+const JsPDF = typeof window !== `undefined` ? require("jspdf") : null
 
 const PdfGenerator = ({ children }) => {
-  const pxToMmRef = useRef()
   const {
     state: {
       pdfGenerator: { pageScreenShots }
@@ -29,22 +25,18 @@ const PdfGenerator = ({ children }) => {
         if (index !== 0 && index !== pageScreenShots.length) {
           pdf.addPage()
         }
+        console.log(pageScreenShots[index])
         pdf.addImage(pageScreenShots[index], "PNG", 0, 0, 210, 297)
         index += 1
       }
 
-      pdf.save(`test.pdf`, { returnPromise: true }).then(() => {
-        console.log("done")
-      })
+      // pdf.save(`test.pdf`, { returnPromise: true }).then(() => {
+      //   console.log("done")
+      // })
     }
   }, [children, pageScreenShots])
 
-  return (
-    <>
-      <div ref={pxToMmRef} style={{ position: "absolute", height: "1mm" }} />
-      <div className="PdfGenerator">{children}</div>
-    </>
-  )
+  return <div className="PdfGenerator">{children}</div>
 }
 
 export default PdfGenerator
