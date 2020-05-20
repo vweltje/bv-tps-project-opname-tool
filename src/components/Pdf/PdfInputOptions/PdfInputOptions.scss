@@ -1,0 +1,16 @@
+.PdfInputOptions {
+  display: flex;
+  justify-content: space-between;
+
+  > div {
+    width: calc(50% - 2.5mm);
+  }
+}
+
+.PdfInputOptions--option {
+  display: flex;
+}
+
+.PdfInputOption--optionLabel {
+  flex-grow: 1;
+}

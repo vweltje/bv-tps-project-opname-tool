@@ -1,0 +1,19 @@
+.Checkbox {
+  position: relative;
+  height: 3.75mm;
+  width: 3.75mm;
+  border: 1px solid rgba($colorBlack, 0.5);
+  display: inline-block;
+  margin-right: 2mm;
+
+  &.checked::before {
+    content: "\2714";
+    position: absolute;
+    top: calc(50% + 1px);
+    left: calc(50% + 1px);
+    transform: translate(-50%, -50%);
+    font-size: 3mm;
+    line-height: 3mm;
+    color: $colorOrange;
+  }
+}
