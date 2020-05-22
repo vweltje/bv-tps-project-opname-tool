@@ -20,16 +20,21 @@ const getPageSize = (size = "a4") => pageSizes?.[size]
 
 const PdfPage = ({ size, margins, children }) => {
   const pageRef = useRef()
-  const { dispatch } = useContext(store)
-
+  const {
+    state: {
+      pdfGenerator: { startGenerating }
+    },
+    dispatch
+  } = useContext(store)
+  console.log(startGenerating)
   useEffect(() => {
-    if (pageRef?.current) {
+    if (startGenerating && pageRef?.current) {
       html2canvas(pageRef.current, { scale: 2 }).then(canvas => {
         const imgData = canvas.toDataURL("image/png")
         dispatch({ type: "pdfGenerator--addPageScreenShot", value: imgData })
       })
     }
-  }, [dispatch, pageRef])
+  }, [startGenerating, dispatch, pageRef])
 
   return (
     <div

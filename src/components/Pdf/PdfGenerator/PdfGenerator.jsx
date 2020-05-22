@@ -8,14 +8,15 @@ const PdfGenerator = ({ children }) => {
   const {
     state: {
       pdfGenerator: { pageScreenShots }
-    }
+    },
+    dispatch
   } = useContext(store)
 
   useEffect(() => {
     if (children) {
       const pageCount = children?.length || 1
+
       if (pageScreenShots.length === pageCount) {
-        console.log("start")
         const pdf = new JsPDF({
           orientation: "p",
           unit: "mm",
@@ -33,7 +34,8 @@ const PdfGenerator = ({ children }) => {
         }
 
         pdf.save(`test.pdf`, { returnPromise: true }).then(() => {
-          console.log("done")
+          dispatch("pdfGenerator--resetPageScreenShot")
+          dispatch({ type: "pdfGenerator--startGenerating", value: false })
         })
       }
     }
@@ -43,15 +45,3 @@ const PdfGenerator = ({ children }) => {
 }
 
 export default PdfGenerator
-// style={{
-//   position: "absolute",
-//   top: 0,
-//   zIndex: "-1",
-//   height: 0,
-//   width: 0,
-//   overflow: "hidden",
-//   display: "block",
-//   minWidth: 0,
-//   minHeight: 0,
-//   right: "-100%"
-// }}
