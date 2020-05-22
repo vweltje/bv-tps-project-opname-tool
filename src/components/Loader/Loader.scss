@@ -1,0 +1,91 @@
+$loaderScaleValue: 1.1;
+$loaderPerspective: 140px;
+
+.Loader {
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transform: rotateZ(45deg);
+  opacity: 0.25;
+}
+
+.Loader--cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  transform: scale($loaderScaleValue);
+}
+
+.Loader--cube:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $colorBlue;
+  animation: Loader--foldCubeAngle 2.4s infinite linear both;
+  transform-origin: 100% 100%;
+}
+
+.Loader--cube2 {
+  transform: scale($loaderScaleValue) rotateZ(90deg);
+}
+
+.Loader--cube3 {
+  transform: scale($loaderScaleValue) rotateZ(180deg);
+}
+
+.Loader--cube4 {
+  transform: scale($loaderScaleValue) rotateZ(270deg);
+}
+
+.Loader--cube2:before {
+  animation-delay: 0.3s;
+}
+
+.Loader--cube3:before {
+  animation-delay: 0.6s;
+}
+
+.Loader--cube4:before {
+  animation-delay: 0.9s;
+}
+
+@-webkit-keyframes Loader--foldCubeAngle {
+  0%,
+  10% {
+    transform: perspective($loaderPerspective) rotateX(-180deg);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    transform: perspective($loaderPerspective) rotateX(0deg);
+    opacity: 1;
+  }
+  90%,
+  100% {
+    transform: perspective($loaderPerspective) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes Loader--foldCubeAngle {
+  0%,
+  10% {
+    transform: perspective($loaderPerspective) rotateX(-180deg);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    transform: perspective($loaderPerspective) rotateX(0deg);
+    opacity: 1;
+  }
+  90%,
+  100% {
+    transform: perspective($loaderPerspective) rotateY(180deg);
+    opacity: 0;
+  }
+}

@@ -3,7 +3,7 @@ import ProjectInfo from "./ProjectInfo/ProjectInfo"
 import ProjectDetails from "./ProjectDetails/ProjectDetails"
 import ProjectSubmit from "./ProjectSubmit/ProjectSubmit"
 import Pdf from "../Pdf/Pdf"
-import Loader from "../Loader/Loader"
+import PdfGenerating from "./PdfGenerating/PdfGenerating"
 import { store } from "../../store"
 import "./ProjectForm.scss"
 
@@ -26,7 +26,7 @@ const ProjectForm = () => {
     <div style={{ height: formHeight }}>
       {startGenerating ? (
         <>
-          <Loader />
+          <PdfGenerating />
           <Pdf />
         </>
       ) : (
