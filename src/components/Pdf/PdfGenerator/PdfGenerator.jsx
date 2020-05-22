@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react"
+import { lowerCase } from "lodash"
 import { store } from "../../../store"
 import "./PdfGenerator.scss"
 
@@ -7,7 +8,10 @@ const JsPDF = typeof window !== `undefined` ? require("jspdf") : null
 const PdfGenerator = ({ children }) => {
   const {
     state: {
-      pdfGenerator: { pageScreenShots }
+      pdfGenerator: { pageScreenShots },
+      projectForm: {
+        fields: { projectName, projectNummber }
+      }
     },
     dispatch
   } = useContext(store)
@@ -33,10 +37,19 @@ const PdfGenerator = ({ children }) => {
           index += 1
         }
 
-        pdf.save(`test.pdf`, { returnPromise: true }).then(() => {
-          dispatch("pdfGenerator--resetPageScreenShot")
-          dispatch({ type: "pdfGenerator--startGenerating", value: false })
-        })
+        pdf
+          .save(
+            `${lowerCase(projectName.value || projectName.name)}-${
+              projectNummber.value
+            }.pdf`,
+            {
+              returnPromise: true
+            }
+          )
+          .then(() => {
+            dispatch("pdfGenerator--resetPageScreenShot")
+            dispatch({ type: "pdfGenerator--startGenerating", value: false })
+          })
       }
     }
   }, [children, pageScreenShots])
