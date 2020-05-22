@@ -5,8 +5,7 @@ const useClickAwayListner = (ref, onClickAway, detectEvents) => {
     const handleClickAway = event => {
       event.stopPropagation()
       if (detectEvents && ref.current && !ref.current.contains(event.target)) {
-        console.log(event.target)
-        // onClickAway()
+        onClickAway()
       }
     }
 

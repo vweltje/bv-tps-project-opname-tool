@@ -26,7 +26,7 @@ const PdfPage = ({ size, margins, children }) => {
     },
     dispatch
   } = useContext(store)
-  console.log(startGenerating)
+
   useEffect(() => {
     if (startGenerating && pageRef?.current) {
       html2canvas(pageRef.current, { scale: 2 }).then(canvas => {
