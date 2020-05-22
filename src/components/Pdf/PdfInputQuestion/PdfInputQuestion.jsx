@@ -10,6 +10,7 @@ const PdfInputQuestion = ({ storeSelector, insertTitle = false }) => {
     }
   } = useContext(store)
   const { name, value, additionalInput } = fields[storeSelector]
+  console.log(value)
   return (
     <>
       {insertTitle && (
@@ -29,9 +30,9 @@ const PdfInputQuestion = ({ storeSelector, insertTitle = false }) => {
       <div className="PdfInputQuestion">
         <div className="PdfInputQuestion--name">{name}</div>
         <div className="PdfInputQuestion--checkboxes">
-          <Checkbox checked={value === "ja"} />
-          <Checkbox checked={value === "nee"} />
-          <Checkbox checked={value === "nvt"} />
+          <Checkbox checked={value === "Ja"} />
+          <Checkbox checked={value === "Nee"} />
+          <Checkbox checked={value === "Nvt"} />
         </div>
         <div className="PdfInputQuestion--comment">{additionalInput}</div>
       </div>
