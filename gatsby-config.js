@@ -39,6 +39,13 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://projectopnametool.netlify.app/",
+        policy: [{ userAgent: "*", disallow: "/" }]
+      }
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "assets",
