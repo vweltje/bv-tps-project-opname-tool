@@ -11,7 +11,7 @@ const PdfProjectInfo = () => {
           <PdfInput storeSelector="projectName" />
           <PdfInput storeSelector="contactPerson" />
           <PdfInput storeSelector="adress" />
-          <PdfInput storeSelector="projectName" />
+          <PdfInput storeSelector="projectOwner" />
         </div>
         <div>
           <PdfInput storeSelector="projectNummber" />
