@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: "https://projectopnametool.netlify.app/",
     title: `Project opname tool`,
     description: `Brugmans Vloeren & Total Project Service project opname tool`,
     author: `@vweltje`
