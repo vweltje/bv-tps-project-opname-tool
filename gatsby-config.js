@@ -65,6 +65,7 @@ module.exports = {
         outputStyle: "compressed"
       }
     },
+    "gatsby-plugin-netlify",
     "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-react-svg",
