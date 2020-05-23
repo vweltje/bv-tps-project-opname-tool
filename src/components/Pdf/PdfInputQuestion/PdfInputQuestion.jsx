@@ -10,7 +10,7 @@ const PdfInputQuestion = ({ storeSelector, insertTitle = false }) => {
     }
   } = useContext(store)
   const { name, value, additionalInput } = fields[storeSelector]
-  console.log(value)
+
   return (
     <>
       {insertTitle && (
