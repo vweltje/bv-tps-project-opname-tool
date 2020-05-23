@@ -43,12 +43,12 @@ export const projectFormInitState = {
       name: "Type ondervloer",
       type: "options",
       options: [
-        "Cement dekvloeren",
-        "Anhydriet vloeren",
+        "Cementdekvloeren",
+        "Anhydrietvloeren",
         "Monolithisch beton",
         "Houten ondervloeren"
       ],
-      defaultValue: "Selecteed een ondervoer type",
+      defaultValue: "Selecteer een ondervloer type",
       freeType: "Anders",
       required: true
     },
@@ -78,7 +78,7 @@ export const projectFormInitState = {
       answers: ["Ja", "Nee", "Nvt"]
     },
     ondervloerVrijVanLosseDelen: {
-      name: "ondervloerVrijVanLosseDelen",
+      name: "Ondervloer vrij van losse delen",
       type: "question",
       answers: ["Ja", "Nee", "Nvt"]
     },
@@ -93,12 +93,12 @@ export const projectFormInitState = {
       answers: ["Ja", "Nee", "Nvt"]
     },
     vloerBezemschoon: {
-      name: "Bloer bezemschoon",
+      name: "Vloer bezemschoon",
       type: "question",
       answers: ["Ja", "Nee", "Nvt"]
     },
     geenBelemmeringenAndereOnderaannemers: {
-      name: "Geen belemeringen andere onderaannemers",
+      name: "Geen belemmeringen andere onderaannemers",
       type: "question",
       answers: ["Ja", "Nee", "Nvt"]
     },
@@ -119,9 +119,7 @@ export const projectFormInitState = {
     },
     note: {
       name: "Opmerkingen",
-      type: "textarea",
-      value:
-        "dit is een note die erg lang moet zijn om te testen hoe dat het uiteindelijk in het pdf bestand er uit gaat zien. dit is een note die erg lang moet zijn om te testen hoe dat het uiteindelijk in het pdf bestand er uit gaat zien. dit is een note die erg lang moet zijn om te testen hoe dat het uiteindelijk in het pdf bestand er uit gaat zien. dit is een note die erg lang moet zijn om te testen hoe dat het uiteindelijk in het pdf bestand er uit gaat zien. dit is een note die erg lang moet zijn om te testen hoe dat het uiteindelijk in het pdf bestand er uit gaat zien."
+      type: "textarea"
     }
   }
 }
