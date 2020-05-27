@@ -36,7 +36,6 @@ const ProjectForm = () => {
           <ProjectSubmit />
         </form>
       )}
-      <Pdf />
     </div>
   )
 }
