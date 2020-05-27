@@ -39,6 +39,11 @@ export const projectFormInitState = {
       defaultValue: getDateForInput(),
       required: true
     },
+    vloersysteem: {
+      name: "Vloersysteem",
+      type: "text",
+      required: true
+    },
     subfloorType: {
       name: "Type ondervloer",
       type: "options",

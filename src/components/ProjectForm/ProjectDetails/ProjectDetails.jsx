@@ -5,6 +5,7 @@ import "./ProjectDetails.scss"
 const ProjectDetails = () => {
   return (
     <div className="ProjectDetails">
+      <InputSelector storeSelector="vloersysteem" />
       <InputSelector storeSelector="subfloorType" />
       <InputSelector storeSelector="windWaterProof" />
       <InputSelector storeSelector="restvochtOndergrond" />

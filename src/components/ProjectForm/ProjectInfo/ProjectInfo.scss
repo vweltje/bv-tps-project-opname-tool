@@ -3,11 +3,21 @@
   color: $colorWhite;
 }
 
-.ProjectInfo--title {
+.ProjectInfo > .Container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ProjectInfo .Input .Container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.ProjectInfo--title .Input--inputField {
   font-size: 3rem;
   font-weight: 500;
 }
 
-.ProjectInfo--projectNummber {
+.ProjectInfo--projectNummber .Input--inputField {
   font-size: 1.6rem;
 }

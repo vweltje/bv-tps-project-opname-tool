@@ -3,6 +3,10 @@
   display: flex;
 }
 
+.PdfInput.splitEven .PdfInput--label {
+  width: 50%;
+}
+
 .PdfInput--label {
   width: 28mm;
 }

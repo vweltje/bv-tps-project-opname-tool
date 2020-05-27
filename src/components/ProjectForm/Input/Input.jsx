@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
+import Container from "../../Container/Container"
 import { store } from "../../../store"
 import "./Input.scss"
 
@@ -30,15 +31,19 @@ const Input = ({ className, storeSelector }) => {
   }, [inputValue, defaultValue])
 
   return (
-    <input
-      className={`Input${className ? ` ${className}` : ""}`}
-      name={storeSelector}
-      placeholder={name}
-      type={type}
-      value={inputValue || ""}
-      onChange={e => validate(e?.currentTarget?.value || null)}
-      required={required}
-    />
+    <div className={`Input${className ? ` ${className}` : ""}`}>
+      <Container>
+        <input
+          className="Input--inputField"
+          name={storeSelector}
+          placeholder={name}
+          type={type}
+          value={inputValue || ""}
+          onChange={e => validate(e?.currentTarget?.value || null)}
+          required={required}
+        />
+      </Container>
+    </div>
   )
 }
 

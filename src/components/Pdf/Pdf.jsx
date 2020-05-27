@@ -4,6 +4,7 @@ import PdfPage from "./PdfPage/PdfPage"
 import PdfHeading from "./PdfHeading/PdfHeading"
 import PdfProjectInfo from "./PdfProjectInfo/PdfProjectInfo"
 import PdfHorizontalRuler from "./PdfHorizontalRuler/PdfHorizontalRuler"
+import PdfInput from "./PdfInput/PdfInput"
 import PdfInputOptions from "./PdfInputOptions/PdfInputOptions"
 import PdfInputQuestion from "./PdfInputQuestion/PdfInputQuestion"
 import PdfInputTextarea from "./PdfInputTextarea/PdfInputTextarea"
@@ -16,6 +17,9 @@ const Pdf = () => {
         <PdfProjectInfo />
         <PdfHorizontalRuler />
         <h2 style={{ fontSize: "4mm" }}>Voorbereiding</h2>
+        <div style={{ marginBottom: "5mm" }}>
+          <PdfInput storeSelector="vloersysteem" splitEven />
+        </div>
         <PdfInputOptions storeSelector="subfloorType" />
         <div style={{ margin: "5mm 0" }}>
           <PdfInputQuestion storeSelector="windWaterProof" insertTitle />
