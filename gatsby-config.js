@@ -65,16 +65,7 @@ module.exports = {
         outputStyle: "compressed"
       }
     },
-    "gatsby-plugin-netlify",
-    "gatsby-plugin-offline",
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /svg/ // See below to configure properly
-        }
-      }
-    }
+    "gatsby-plugin-netlify"
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
