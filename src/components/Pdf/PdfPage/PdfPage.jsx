@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext } from "react"
+import React, { useState, useRef, useEffect, useContext } from "react"
 import { store } from "../../../store"
 import "./PdfPage.scss"
 
@@ -18,7 +18,14 @@ const getMargins = margins => ({
 
 const getPageSize = (size = "a4") => pageSizes?.[size]
 
+const imagesToPreload = [
+  "/images/brugmans-vloeren.png",
+  "/images/total-project-service.png"
+]
+
 const PdfPage = ({ size, margins, children }) => {
+  const [preloadedImages, setPreloadedImages] = useState([])
+  const imagesPreloaded = preloadedImages.length === imagesToPreload.length
   const pageRef = useRef()
   const {
     state: {
@@ -27,14 +34,31 @@ const PdfPage = ({ size, margins, children }) => {
     dispatch
   } = useContext(store)
 
+  if (typeof window !== `undefined`) {
+    useEffect(() => {
+      if (startGenerating) {
+        imagesToPreload.map(src => {
+          const image = new Image()
+          image.src = src
+          image.onload = () => {
+            if (!preloadedImages.includes(src)) {
+              setPreloadedImages([...preloadedImages, src])
+            }
+          }
+          return image
+        })
+      }
+    }, [startGenerating, setPreloadedImages, preloadedImages])
+  }
+
   useEffect(() => {
-    if (startGenerating && pageRef?.current) {
+    if (startGenerating && imagesPreloaded && pageRef?.current) {
       html2canvas(pageRef.current, { scale: 1.5 }).then(canvas => {
         const imgData = canvas.toDataURL("image/png")
         dispatch({ type: "pdfGenerator--addPageScreenShot", value: imgData })
       })
     }
-  }, [startGenerating, dispatch, pageRef])
+  }, [startGenerating, imagesPreloaded, dispatch, pageRef])
 
   return (
     <div
