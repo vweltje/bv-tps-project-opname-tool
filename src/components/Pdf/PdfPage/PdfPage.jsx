@@ -53,10 +53,12 @@ const PdfPage = ({ size, margins, children }) => {
 
   useEffect(() => {
     if (startGenerating && imagesPreloaded && pageRef?.current) {
-      html2canvas(pageRef.current, { scale: 1.5 }).then(canvas => {
-        const imgData = canvas.toDataURL("image/png")
-        dispatch({ type: "pdfGenerator--addPageScreenShot", value: imgData })
-      })
+      setTimeout(() => {
+        html2canvas(pageRef.current, { scale: 1.5 }).then(canvas => {
+          const imgData = canvas.toDataURL("image/png")
+          dispatch({ type: "pdfGenerator--addPageScreenShot", value: imgData })
+        })
+      }, 300)
     }
   }, [startGenerating, imagesPreloaded, dispatch, pageRef])
 
