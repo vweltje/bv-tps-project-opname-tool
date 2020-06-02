@@ -9,7 +9,7 @@ export const projectFormInitState = {
     },
     projectNummber: {
       name: "Projectnummer",
-      type: "number",
+      type: "text",
       defaultValue: getProjectNumber(),
       required: true
     },
