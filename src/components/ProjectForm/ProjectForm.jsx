@@ -24,10 +24,10 @@ const ProjectForm = () => {
 
   return (
     <div style={{ height: formHeight }}>
+      <Pdf />
       {startGenerating ? (
         <>
           <PdfGenerating />
-          <Pdf />
         </>
       ) : (
         <form ref={formRef} autoComplete="off" className="ProjectForm">
