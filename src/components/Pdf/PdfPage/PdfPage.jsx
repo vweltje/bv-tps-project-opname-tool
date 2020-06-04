@@ -18,35 +18,26 @@ const getMargins = margins => ({
 
 const getPageSize = (size = "a4") => pageSizes?.[size]
 
-const imagesToPreload = [
-  "/images/brugmans-vloeren.png",
-  "/images/total-project-service.png"
-]
-
 const PdfPage = ({ size, margins, children }) => {
   const pageRef = useRef()
   const {
     state: {
-      pdfGenerator: { startGenerating, loadedImages }
+      pdfGenerator: { startGenerating }
     },
     dispatch
   } = useContext(store)
 
   useEffect(() => {
-    const imagesPreloaded = loadedImages.length === imagesToPreload.length
-
-    if (startGenerating && imagesPreloaded && pageRef?.current) {
-      setTimeout(() => {
-        html2canvas(pageRef.current, { scale: 1.5 }).then(canvas => {
-          const imgData = canvas.toDataURL("image/png")
-          dispatch({
-            type: "pdfGenerator--addPageScreenShot",
-            value: imgData
-          })
+    if (startGenerating && pageRef?.current) {
+      html2canvas(pageRef.current, { scale: 1.5 }).then(canvas => {
+        const imgData = canvas.toDataURL("image/png")
+        dispatch({
+          type: "pdfGenerator--addPageScreenShot",
+          value: imgData
         })
-      }, 1000)
+      })
     }
-  }, [startGenerating, loadedImages, imagesToPreload, dispatch, pageRef])
+  }, [startGenerating, dispatch, pageRef])
 
   return (
     <div
