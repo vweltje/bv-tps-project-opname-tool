@@ -3,7 +3,24 @@ import { store } from "../../../store"
 import "./PdfHeading.scss"
 
 const PdfHeading = () => {
-  const { dispatch } = useContext(store)
+  const {
+    state: {
+      pdfGenerator: { loadedImages }
+    },
+    dispatch
+  } = useContext(store)
+
+  const dispatchWhenComplete = (image, src) => {
+    if (!image) return
+    if (image.complete) {
+      if (!loadedImages.includes("/images/brugmans-vloeren.png")) {
+        dispatch({
+          type: "pdfGenerator--addImageLoaded",
+          value: src
+        })
+      }
+    }
+  }
 
   return (
     <div className="PdfHeading">
@@ -12,11 +29,8 @@ const PdfHeading = () => {
           <img
             src="/images/brugmans-vloeren.png"
             alt="brugmans-vloeren-logo"
-            onLoad={() =>
-              dispatch({
-                type: "pdfGenerator--addImageLoaded",
-                value: "/images/brugmans-vloeren.png"
-              })
+            ref={image =>
+              dispatchWhenComplete(image, "/images/brugmans-vloeren.png")
             }
           />
         </div>
@@ -26,11 +40,8 @@ const PdfHeading = () => {
           <img
             src="/images/total-project-service.png"
             alt="total-project-service-logo"
-            onLoad={() =>
-              dispatch({
-                type: "pdfGenerator--addImageLoaded",
-                value: "/images/total-project-service.png"
-              })
+            ref={image =>
+              dispatchWhenComplete(image, "/images/total-project-service.png")
             }
           />
         </div>

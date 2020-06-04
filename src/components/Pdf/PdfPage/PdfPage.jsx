@@ -31,9 +31,10 @@ const PdfPage = ({ size, margins, children }) => {
     },
     dispatch
   } = useContext(store)
-  const imagesPreloaded = loadedImages.length === imagesToPreload.length
 
   useEffect(() => {
+    const imagesPreloaded = loadedImages.length === imagesToPreload.length
+
     if (startGenerating && imagesPreloaded && pageRef?.current) {
       html2canvas(pageRef.current, { scale: 1.5, allowTaint: true }).then(
         canvas => {
@@ -42,7 +43,7 @@ const PdfPage = ({ size, margins, children }) => {
         }
       )
     }
-  }, [startGenerating, imagesPreloaded, dispatch, pageRef])
+  }, [startGenerating, loadedImages, imagesToPreload, dispatch, pageRef])
 
   return (
     <div
