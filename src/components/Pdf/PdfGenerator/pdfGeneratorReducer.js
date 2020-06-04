@@ -1,7 +1,7 @@
 export const pdfGeneratorInitState = {
   pageScreenShots: [],
   startGenerating: false,
-  loadedImages: []
+  loadedImages: ["1", "2"]
 }
 
 export const pdfGeneratorReducer = (state, { type, value }) => {
