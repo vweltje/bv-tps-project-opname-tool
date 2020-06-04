@@ -1,6 +1,7 @@
 export const pdfGeneratorInitState = {
   pageScreenShots: [],
-  startGenerating: false
+  startGenerating: false,
+  loadedImages: []
 }
 
 export const pdfGeneratorReducer = (state, { type, value }) => {
@@ -19,6 +20,11 @@ export const pdfGeneratorReducer = (state, { type, value }) => {
       return {
         ...state,
         startGenerating: value
+      }
+    case "pdfGenerator--addImageLoaded":
+      return {
+        ...state,
+        loadedImages: [...state.loadedImages, value]
       }
     default:
       return state

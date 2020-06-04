@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react"
+import React, { useRef, useEffect, useContext } from "react"
 import { store } from "../../../store"
 import "./PdfPage.scss"
 
@@ -24,32 +24,14 @@ const imagesToPreload = [
 ]
 
 const PdfPage = ({ size, margins, children }) => {
-  const [preloadedImages, setPreloadedImages] = useState([])
-  const imagesPreloaded = preloadedImages.length === imagesToPreload.length
   const pageRef = useRef()
   const {
     state: {
-      pdfGenerator: { startGenerating }
+      pdfGenerator: { startGenerating, loadedImages }
     },
     dispatch
   } = useContext(store)
-
-  if (typeof window !== `undefined`) {
-    useEffect(() => {
-      if (startGenerating) {
-        imagesToPreload.map(src => {
-          const image = new Image()
-          image.src = src
-          image.onload = () => {
-            if (!preloadedImages.includes(src)) {
-              setPreloadedImages([...preloadedImages, src])
-            }
-          }
-          return image
-        })
-      }
-    }, [startGenerating, setPreloadedImages, preloadedImages])
-  }
+  const imagesPreloaded = loadedImages.length === imagesToPreload.length
 
   useEffect(() => {
     if (startGenerating && imagesPreloaded && pageRef?.current) {
