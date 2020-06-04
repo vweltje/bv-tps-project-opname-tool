@@ -36,12 +36,17 @@ const PdfPage = ({ size, margins, children }) => {
     const imagesPreloaded = loadedImages.length === imagesToPreload.length
 
     if (startGenerating && imagesPreloaded && pageRef?.current) {
-      html2canvas(pageRef.current, { scale: 1.5, allowTaint: true }).then(
-        canvas => {
-          const imgData = canvas.toDataURL("image/png")
-          dispatch({ type: "pdfGenerator--addPageScreenShot", value: imgData })
-        }
-      )
+      setTimeout(() => {
+        html2canvas(pageRef.current, { scale: 1.5, allowTaint: true }).then(
+          canvas => {
+            const imgData = canvas.toDataURL("image/png")
+            dispatch({
+              type: "pdfGenerator--addPageScreenShot",
+              value: imgData
+            })
+          }
+        )
+      }, 1000)
     }
   }, [startGenerating, loadedImages, imagesToPreload, dispatch, pageRef])
 
