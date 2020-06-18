@@ -24,9 +24,9 @@ const ProjectForm = () => {
 
   return (
     <div style={{ height: formHeight }}>
-      <Pdf />
       {startGenerating ? (
         <>
+          <Pdf />
           <PdfGenerating />
         </>
       ) : (
